@@ -7,6 +7,7 @@ import java.util.concurrent.TimeUnit;
 
 import org.junit.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.By.ByClassName;
 import org.openqa.selenium.By.ByXPath;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
@@ -16,7 +17,7 @@ import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.remote.MobileCapabilityType;
 import junit.framework.Assert;
 
-public class FormularioTeste {
+public class FormularioTeste{
 
 	@Test
 	public void insercaoDeTexto() throws MalformedURLException {
@@ -137,18 +138,12 @@ public class FormularioTeste {
 	    driver.findElement(By.xpath("//android.widget.TextView[@text='Formulário']")).click();
 	    
 	    //2. Preencher Campos
-	    MobileElement campoNome = driver.findElement(MobileBy.AccessibilityId("nome"));
-	    campoNome.sendKeys("Cleber Oliveira");
-
-	    driver.findElement(MobileBy.AccessibilityId("console")).click();
-	    
+	    driver.findElement(By.className("android.widget.EditText")).sendKeys("Cleber Oliveira");
+	    driver.findElement(By.className("android.widget.CheckBox")).click();
+	    driver.findElement(By.className("android.widget.Switch")).click();
+	    driver.findElement(By.className("android.widget.Spinner")).click();
 	    driver.findElement(By.xpath("//android.widget.CheckedTextView[@text='Nintendo Switch']")).click();
 
-	    MobileElement checkbox = driver.findElement(By.className("android.widget.CheckBox"));
-	    MobileElement switch_ = driver.findElement(MobileBy.AccessibilityId("switch"));
-	    
-	    checkbox.click();
-	    
 	    //3. Clicar no botão salvar
 	    driver.findElement(By.xpath("//android.widget.TextView[@text='SALVAR']")).click();
 	    
@@ -161,7 +156,7 @@ public class FormularioTeste {
 	    Assert.assertEquals("Console: switch", console);
 	    
 	    String switch_1 = driver.findElement(By.xpath("//android.widget.TextView[@index='15']")).getText();
-	    Assert.assertEquals("Switch: On", switch_1);
+	    Assert.assertEquals("Switch: Off", switch_1);
 	    
 	    String check = driver.findElement(By.xpath("//android.widget.TextView[@index='16']")).getText();
 	    Assert.assertEquals("Checkbox: Marcado", check);
