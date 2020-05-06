@@ -1,5 +1,7 @@
 package application;
 
+import static junit.framework.Assert.assertEquals;
+
 import java.net.MalformedURLException;
 
 import org.junit.After;
@@ -7,20 +9,20 @@ import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
 
+import application.core.DSL;
 import application.core.DriverFactory;
 import io.appium.java_client.MobileBy;
-import io.appium.java_client.MobileElement;
-import io.appium.java_client.android.AndroidDriver;
 import junit.framework.Assert;
 
 public class FormularioTeste {
-
-	private AndroidDriver<MobileElement> driver;
+	
+	private DSL dsl = new DSL();
 
 	@Before
-	//Faz a chamada do Driver Factory para iniciar a sessão
+	//Passos precedentes para acesso às funcionalidades
 	public void inicializarAppium() throws MalformedURLException {
-		driver = DriverFactory.getDriver();
+		//Selecionando formulário (DSL)
+		dsl.clicarPorTexto("Formulário");
 	}
 
 	@After
@@ -32,27 +34,21 @@ public class FormularioTeste {
 	@Test
 	public void insercaoDeTexto() throws MalformedURLException {
 
-		// Escrever Nome
-		MobileElement campoNome = driver.findElement(MobileBy.AccessibilityId("nome"));
-		campoNome.sendKeys("Dino");
+		// Escrever Nome (DSL)
+		dsl.escreverFormulario(MobileBy.AccessibilityId("nome"), "Dino");
 
-		// Checkar nome escrito
-		String text = campoNome.getText();
-		Assert.assertEquals("Dino", text);
+		// Checkar nome escrito (DSL)
+		assertEquals("Dino", dsl.obterTexto(MobileBy.AccessibilityId("nome")));
 	}
 
 	@Test
 	public void selecaoDeCombo() throws MalformedURLException {
 
-		// Acessando o Combo
-		driver.findElement(MobileBy.AccessibilityId("console")).click();
-
-		// Selecionar opção desejada
-		driver.findElement(By.xpath("//android.widget.CheckedTextView[@text='Nintendo Switch']")).click();
-		// //class [@atributo='value']
+		// Acessando o combo e selecionando opção desejada
+		dsl.selecionarCombo(MobileBy.AccessibilityId("console"), "Nintendo Switch");
 
 		// Verificando opção selecionada
-		String text = driver.findElement(By.xpath("//android.widget.Spinner/android.widget.TextView")).getText();
+		String text = dsl.obterTexto(By.xpath("//android.widget.Spinner/android.widget.TextView"));
 		Assert.assertEquals("Nintendo Switch", text);
 	}
 
@@ -60,42 +56,34 @@ public class FormularioTeste {
 	public void switchAndCheckBox() throws MalformedURLException {
 
 		// Verificar status dos elementos
-		MobileElement checkbox = driver.findElement(By.className("android.widget.CheckBox"));
-		MobileElement switch_ = driver.findElement(MobileBy.AccessibilityId("switch"));
-		// True ou false Não boolean
-		Assert.assertTrue(checkbox.getAttribute("checked").equals("false"));
-		Assert.assertTrue(switch_.getAttribute("checked").equals("true"));
+		Assert.assertTrue(dsl.isCheked(By.className("android.widget.CheckBox")));
+		Assert.assertFalse(dsl.isCheked(MobileBy.AccessibilityId("switch")));
 
 		// clicar nos elementos
-		checkbox.click();
-		switch_.click();
+		dsl.clicar(By.className("android.widget.CheckBox"));
+		dsl.clicar(MobileBy.AccessibilityId("switch"));
 
 		// verificar status alterados
-		Assert.assertTrue(checkbox.getAttribute("checked").equals("true"));
-		Assert.assertTrue(switch_.getAttribute("checked").equals("false"));
+		Assert.assertFalse(dsl.isCheked(By.className("android.widget.CheckBox")));
+		Assert.assertTrue(dsl.isCheked(MobileBy.AccessibilityId("switch")));
 	}
 
 	@Test
-	public void desafioFormulario() throws MalformedURLException {
+	public void realizarCadastro() throws MalformedURLException {
 
 		// Preencher Campos
-		driver.findElement(By.className("android.widget.EditText")).sendKeys("Cleber Oliveira");
-		driver.findElement(By.className("android.widget.CheckBox")).click();
-		driver.findElement(By.className("android.widget.Switch")).click();
-		driver.findElement(By.className("android.widget.Spinner")).click();
-		driver.findElement(By.xpath("//android.widget.CheckedTextView[@text='Nintendo Switch']")).click();
+		dsl.escreverFormulario(By.className("android.widget.EditText"), "Cleber Oliveira");
+		dsl.clicar(By.className("android.widget.CheckBox"));
+		dsl.clicar(By.className("android.widget.Switch"));
+		dsl.selecionarCombo(By.className("android.widget.Spinner"), "Nintendo Switch");
 
 		// Clicar no botão salvar
-		driver.findElement(By.xpath("//android.widget.TextView[@text='SALVAR']")).click();
+		dsl.clicarPorTexto("SALVAR");
 
 		// Validar campos
-		String nome = driver.findElement(By.xpath("//android.widget.TextView[@index='12']")).getText();
-		Assert.assertEquals("Nome: Cleber Oliveira", nome);
-		String console = driver.findElement(By.xpath("//android.widget.TextView[@index='13']")).getText();
-		Assert.assertEquals("Console: switch", console);
-		String switch_1 = driver.findElement(By.xpath("//android.widget.TextView[@index='15']")).getText();
-		Assert.assertEquals("Switch: Off", switch_1);
-		String check = driver.findElement(By.xpath("//android.widget.TextView[@index='16']")).getText();
-		Assert.assertEquals("Checkbox: Marcado", check);
+		Assert.assertEquals("Nome: Cleber Oliveira", dsl.obterTexto(By.xpath("//android.widget.TextView[@index='12']")));
+		Assert.assertEquals("Console: switch", dsl.obterTexto(By.xpath("//android.widget.TextView[@index='13']")));
+		Assert.assertEquals("Switch: Off", dsl.obterTexto(By.xpath("//android.widget.TextView[@index='15']")));
+		Assert.assertEquals("Checkbox: Marcado", dsl.obterTexto(By.xpath("//android.widget.TextView[@index='16']")));
 	}
 }

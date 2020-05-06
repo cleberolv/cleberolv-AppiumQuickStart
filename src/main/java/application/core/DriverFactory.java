@@ -4,8 +4,6 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
-import org.junit.Before;
-import org.openqa.selenium.By;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 import io.appium.java_client.MobileElement;
@@ -42,10 +40,7 @@ public class DriverFactory {
 
 	//TimeOut padrão
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-
-	//Selecionando formulário via Xpath
-		driver.findElement(By.xpath("//*[@text='Formulário']")).click();
-
+		
 	}
 
 	//Encerra sessão
