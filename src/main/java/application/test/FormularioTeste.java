@@ -4,16 +4,15 @@ import static junit.framework.Assert.assertEquals;
 
 import java.net.MalformedURLException;
 
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import application.core.DriverFactory;
+import application.core.BaseTest;
 import application.page.formularioPage;
 import application.page.menuPage;
 import junit.framework.Assert;
 
-public class FormularioTeste {
+public class FormularioTeste extends BaseTest {
 	
 	//instâncias
 	
@@ -24,12 +23,6 @@ public class FormularioTeste {
 	//Passos precedentes para acesso às funcionalidades
 	public void inicializarAppium() throws MalformedURLException {
 		menu.acessarFormulario();
-	}
-
-	@After
-	//Encerra a sessão
-	public void tearDown(){
-		DriverFactory.killDriver();
 	}
 	
 	@Test

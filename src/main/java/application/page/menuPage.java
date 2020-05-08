@@ -1,13 +1,11 @@
 package application.page;
 
-import application.core.DSL;
+import application.core.BasePage;
 
-public class menuPage {
-
-	private DSL dsl = new DSL();
+public class menuPage extends BasePage {
 	
 	public void acessarFormulario() {
-		dsl.clicarPorTexto("Formulário");
+		clicarPorTexto("Formulário");
 	}
 	
 }
