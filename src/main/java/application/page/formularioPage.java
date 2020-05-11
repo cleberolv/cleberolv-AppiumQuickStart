@@ -52,6 +52,11 @@ public class formularioPage extends BasePage{
 		clicarPorTexto("SALVAR");
 	}
 	
+	//Clica no botão Salvar
+	public void salvarDemorado() {
+		clicarPorTexto("SALVAR DEMORADO");
+	}
+	
 	//Checa informações 
 	public String obterTexto() {
 		return obterTexto(By.xpath("//android.widget.TextView[@index='12']"));
