@@ -2,9 +2,14 @@ package application.core;
 
 import static application.core.DriverFactory.getDriver;
 
+import java.util.List;
+
 import org.openqa.selenium.By;
 
+import io.appium.java_client.MobileElement;
+
 public class BasePage {
+
 	public void escreverFormulario(By by, String texto) {
 		getDriver().findElement(by).sendKeys(texto);
 	}
@@ -30,5 +35,10 @@ public class BasePage {
 	public boolean isCheked(By by) {
 		return getDriver().findElement(by).getAttribute("checked").equals("false");
 
+	}
+	
+	public boolean textoVisivel (String texto) {
+		List<MobileElement> elements = getDriver().findElements(By.xpath("//*[@text='" + texto + "']"));
+		return elements.size() > 0; 
 	}
 }
