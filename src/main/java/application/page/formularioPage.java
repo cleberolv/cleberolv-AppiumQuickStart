@@ -39,12 +39,12 @@ public class formularioPage extends BasePage{
 	
 	//Verfica se o elemento check está marcado
 	public boolean isCheckMarcado() {
-		return isCheked(By.className("android.widget.CheckBox"));
+		return chekedMarcado(By.className("android.widget.CheckBox"));
 	}
 	
 	//Verfica se o elemento switch está marcado
 	public boolean isSwitchMarcado() {
-		return isCheked(MobileBy.AccessibilityId("switch"));
+		return chekedMarcado(MobileBy.AccessibilityId("switch"));
 	}
 	
 	//Clica no botão Salvar

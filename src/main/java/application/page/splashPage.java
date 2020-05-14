@@ -12,7 +12,7 @@ import application.core.BasePage;
 public class splashPage extends BasePage {
 	
 	public boolean textoSplashVisivel() {
-		return textoVisivel("Splash!");
+		return checkElementoTexto("Splash!");
 	}
 	
 	public void textoSplashInvisivel() {

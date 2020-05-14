@@ -32,12 +32,12 @@ public class BasePage {
 		getDriver().findElement(By.xpath("//android.widget.CheckedTextView[@text='" + valor + "']")).click();
 	}
 
-	public boolean isCheked(By by) {
+	public boolean chekedMarcado(By by) {
 		return getDriver().findElement(by).getAttribute("checked").equals("false");
 
 	}
 	
-	public boolean textoVisivel (String texto) {
+	public boolean checkElementoTexto(String texto) {
 		List<MobileElement> elements = getDriver().findElements(By.xpath("//*[@text='" + texto + "']"));
 		return elements.size() > 0; 
 	}

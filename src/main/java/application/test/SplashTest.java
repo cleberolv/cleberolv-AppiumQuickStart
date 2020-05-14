@@ -10,7 +10,7 @@ import application.page.splashPage;
 public class SplashTest extends BaseTest {
 
 	private menuPage menu = new menuPage();
-	private splashPage splash = new splashPage();
+	private splashPage page = new splashPage();
 	
 	@Test
 	public void testSplash() {
@@ -18,13 +18,13 @@ public class SplashTest extends BaseTest {
 		menu.acessarMenuSplash();
 		
 		//Verificar exibição do splash
-		splash.textoSplashVisivel();
+		page.textoSplashVisivel();
 		
 		//Aguardar saída do splash
-		splash.textoSplashInvisivel();
+		page.textoSplashInvisivel();
 		
 		//Verificar o fomulário
-		Assert.assertTrue();
+		Assert.assertTrue(page.checkElementoTexto("Splash!"));
 	}
 	
 }
