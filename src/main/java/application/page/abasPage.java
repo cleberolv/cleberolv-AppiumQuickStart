@@ -1,15 +1,17 @@
 package application.page;
 
+import org.openqa.selenium.By;
+
 import application.core.BasePage;
 
 public class abasPage extends BasePage {
-
-	public boolean validarAba1() {
-		return checkElementoTexto("Este é o conteúdo da Aba 1");
+	
+	public String verificarAba1() {
+		return obterTexto(By.xpath("//*[contains(@text, 'Aba 1')]"));
 	}
 	
-	public boolean validarAba2() {
-		return checkElementoTexto("Este é o conteúdo da Aba 2");
+	public String verificarAba2() {
+		return obterTexto(By.xpath("//*[contains(@text, 'Aba 2')]"));
 	}
 	
 	public void mudarAba() {
