@@ -7,7 +7,7 @@ import application.page.alertPage;
 import application.page.menuPage;
 import junit.framework.Assert;
 
-public class alertJava extends BaseTest {
+public class Alert extends BaseTest {
 	
 	private menuPage menu = new menuPage();
 	private alertPage page = new alertPage();
