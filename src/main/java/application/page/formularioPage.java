@@ -2,10 +2,10 @@ package application.page;
 
 import org.openqa.selenium.By;
 
-import application.core.BasePage;
+import application.core.basePage;
 import io.appium.java_client.MobileBy;
 
-public class formularioPage extends BasePage{
+public class formularioPage extends basePage{
 	
 	//Escreve nome no formulário
 	public void escreverNome(String nome){

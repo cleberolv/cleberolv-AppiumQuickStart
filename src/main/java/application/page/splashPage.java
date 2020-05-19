@@ -1,15 +1,15 @@
 package application.page;
 
 import java.util.concurrent.TimeUnit;
-import static application.core.DriverFactory.getDriver;
+import static application.core.driverFactory.getDriver;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import application.core.BasePage;
+import application.core.basePage;
 
-public class splashPage extends BasePage {
+public class splashPage extends basePage {
 	
 	public boolean textoSplashVisivel() {
 		return checkElementoTexto("Splash!");

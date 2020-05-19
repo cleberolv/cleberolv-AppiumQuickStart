@@ -1,4 +1,4 @@
-package application.test;
+package helloAppium;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -10,7 +10,7 @@ import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
 import junit.framework.Assert;
 
-public class calculadoraTeste {
+public class calculadoraTesteMoto {
 
 	@Test
 	public void Soma() throws MalformedURLException {
@@ -18,10 +18,10 @@ public class calculadoraTeste {
 		DesiredCapabilities desiredCapablities = new DesiredCapabilities();
 		
 		desiredCapablities.setCapability("platformName", "Android");
-	    desiredCapablities.setCapability("deviceName", "emulator-5554");
+	    desiredCapablities.setCapability("deviceName", "0033388017");
 	    desiredCapablities.setCapability("automationName", "uiautomator2");
 	    desiredCapablities.setCapability("appPackage", "com.android.calculator2");
-	    desiredCapablities.setCapability("appActivity", "com.android.calculator2.Calculator");
+	    desiredCapablities.setCapability("appActivity", "com.android.calculator2.CalculatorGoogle");
 	    desiredCapablities.setCapability("noSign", false);
 	    
 	    AndroidDriver<MobileElement> driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), desiredCapablities);

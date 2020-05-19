@@ -1,6 +1,6 @@
 package application.core;
 
-import static application.core.DriverFactory.getDriver;
+import static application.core.driverFactory.getDriver;
 
 import java.util.List;
 
@@ -8,7 +8,7 @@ import org.openqa.selenium.By;
 
 import io.appium.java_client.MobileElement;
 
-public class BasePage {
+public class basePage {
 
 	public void escreverFormulario(By by, String texto) {
 		getDriver().findElement(by).sendKeys(texto);
@@ -41,4 +41,5 @@ public class BasePage {
 		List<MobileElement> elements = getDriver().findElements(By.xpath("//*[@text='" + texto + "']"));
 		return elements.size() > 0; 
 	}
+	
 }

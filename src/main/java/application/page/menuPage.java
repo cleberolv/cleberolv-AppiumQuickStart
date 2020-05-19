@@ -1,8 +1,8 @@
 package application.page;
 
-import application.core.BasePage;
+import application.core.basePage;
 
-public class menuPage extends BasePage {
+public class menuPage extends basePage {
 	
 	public void acessarFormulario() {
 		clicarPorTexto("Formulário");
@@ -18,6 +18,10 @@ public class menuPage extends BasePage {
 	
 	public void acessarMenuAbas() {
 		clicarPorTexto("Abas");
+	}
+	
+	public void acessarMenuAccordion() {
+		clicarPorTexto("Accordion");
 	}
 	
 }

@@ -2,12 +2,12 @@ package application.test;
 
 import org.junit.Test;
 
-import application.core.BaseTest;
+import application.core.baseTest;
 import application.page.alertPage;
 import application.page.menuPage;
 import junit.framework.Assert;
 
-public class Alert extends BaseTest {
+public class alertTest extends baseTest {
 	
 	private menuPage menu = new menuPage();
 	private alertPage page = new alertPage();

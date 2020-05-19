@@ -2,9 +2,9 @@ package application.page;
 
 import org.openqa.selenium.By;
 
-import application.core.BasePage;
+import application.core.basePage;
 
-public class abasPage extends BasePage {
+public class abasPage extends basePage {
 	
 	public String verificarAba1() {
 		return obterTexto(By.xpath("//*[contains(@text, 'Aba 1')]"));

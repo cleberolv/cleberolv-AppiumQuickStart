@@ -3,11 +3,11 @@ package application.test;
 import org.junit.Assert;
 import org.junit.Test;
 
-import application.core.BaseTest;
+import application.core.baseTest;
 import application.page.menuPage;
 import application.page.splashPage;
 
-public class SplashTest extends BaseTest {
+public class splashTest extends baseTest {
 
 	private menuPage menu = new menuPage();
 	private splashPage page = new splashPage();

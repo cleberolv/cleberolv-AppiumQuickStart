@@ -2,9 +2,9 @@ package application.page;
 
 import org.openqa.selenium.By;
 
-import application.core.BasePage;
+import application.core.basePage;
 
-public class alertPage extends BasePage {
+public class alertPage extends basePage {
 	
 	public void btnAlertConfirm() {
 		clicarPorTexto("ALERTA CONFIRM");

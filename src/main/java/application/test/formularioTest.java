@@ -11,13 +11,13 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import application.core.BaseTest;
-import application.core.DriverFactory;
+import application.core.baseTest;
+import application.core.driverFactory;
 import application.page.formularioPage;
 import application.page.menuPage;
 import junit.framework.Assert;
 
-public class FormularioTeste extends BaseTest {
+public class formularioTest extends baseTest {
 	
 	// Instâncias
 	
@@ -92,13 +92,13 @@ public class FormularioTeste extends BaseTest {
 		page.escreverNome("Cleber Oliveira");
 		
 		// Zerando o timeout implicito para o método
-		DriverFactory.getDriver().manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
+		driverFactory.getDriver().manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
 
 		//Clica no botão salvar demorado
 		page.salvarDemorado();
 		
 		//Instaciando a classe WebDriverWait e definindo o time out (limite) para 10 segundos
-		WebDriverWait wait = new WebDriverWait(DriverFactory.getDriver(), 10);
+		WebDriverWait wait = new WebDriverWait(driverFactory.getDriver(), 10);
 		
 		//Aguardando até o elemento xpath ser apresentado na tela
 		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@text='Nome: Cleber Oliveira']")));
