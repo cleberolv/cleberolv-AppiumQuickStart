@@ -1,5 +1,6 @@
 package application.test;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import application.core.baseTest;
@@ -12,10 +13,14 @@ public class alertTest extends baseTest {
 	private menuPage menu = new menuPage();
 	private alertPage page = new alertPage();
 	
+	@Before
+	public void menu() {
+		menu.acessarMenuAlert();
+	}
+	
+	
 	@Test
 	public void testAlert() {
-		//Acessar Menu Alert
-		menu.acessarMenuAlert();
 		
 		//clicar no botão alert confirm
 		page.btnAlertConfirm();
@@ -32,6 +37,19 @@ public class alertTest extends baseTest {
 		
 		//sair
 		page.sair();
+	}
+	
+	@Test
+	public void clicarForaAlert() {
+		
+		//Clicar no alerta simples
+		page.clicarAlertSimples();
+		
+		//Clicar fora da caixa
+		page.clicarForadaCaixa();
+		
+		//Validar que o alert desapareceu da tela
+		Assert.assertFalse(page.checkElementoTexto("Pode clicar no OK ou fora da caixa para sair"));
 	}
 
 }
