@@ -15,6 +15,7 @@ import application.core.baseTest;
 import application.core.driverFactory;
 import application.page.formularioPage;
 import application.page.menuPage;
+import io.appium.java_client.MobileBy;
 import junit.framework.Assert;
 
 public class formularioTest extends baseTest {
@@ -113,6 +114,15 @@ public class formularioTest extends baseTest {
 		page.clicarPorTexto("20");
 		page.clicarPorTexto("OK");
 		Assert.assertTrue(page.checkElementoTexto("20/2/2000"));
+	}
+	
+	@Test
+	public void alterarHora() {
+		page.clicarPorTexto("06:00");
+		page.clicar(MobileBy.AccessibilityId("12"));
+		page.clicar(MobileBy.AccessibilityId("10"));
+		page.clicarPorTexto("OK");
+		Assert.assertTrue(page.checkElementoTexto("12:10"));
 	}
 	
 	
