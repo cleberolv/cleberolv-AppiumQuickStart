@@ -106,4 +106,14 @@ public class formularioTest extends baseTest {
 		// Valida campo digitado
 		Assert.assertEquals("Nome: Cleber Oliveira", page.obterTexto());
 	}
+	
+	@Test
+	public void alterarData() {
+		page.clicarPorTexto("01/01/2000");
+		page.clicarPorTexto("20");
+		page.clicarPorTexto("OK");
+		Assert.assertTrue(page.checkElementoTexto("20/2/2000"));
+	}
+	
+	
 }
