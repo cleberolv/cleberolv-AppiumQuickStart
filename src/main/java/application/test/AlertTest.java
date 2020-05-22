@@ -45,7 +45,7 @@ public class AlertTest extends BaseTest {
 		//Clicar no alerta simples
 		page.clicarAlertSimples();
 		
-		//Clicar fora da caixa
+		//Clicar fora da caixa #Bug1
 		page.clicarForadaCaixa();
 		
 		//Validar que o alert desapareceu da tela

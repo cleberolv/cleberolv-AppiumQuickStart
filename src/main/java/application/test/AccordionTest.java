@@ -21,8 +21,7 @@ public class AccordionTest extends BaseTest {
 		//Clicar na opção 1
 		page.AcessarAcordeon();
 		
-		//Validar texto da opção 1
-		
+		//Validar texto da opção 1 #Bug2
 		Assert.assertEquals("Esta é a descrição da opção 1", page.validarAcordeon());
 	}
 
