@@ -24,4 +24,8 @@ public class MenuPage extends BasePage {
 		clicarPorTexto("Accordion");
 	}
 	
+	public void acessarMenuCliques() {
+		clicarPorTexto("Cliques");
+	}
+	
 }
