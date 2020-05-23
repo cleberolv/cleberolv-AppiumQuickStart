@@ -9,8 +9,8 @@ import junit.framework.Assert;
 
 public class AccordionTest extends BaseTest {
 	
-	MenuPage menu = new MenuPage();
-	AccordionPage page = new AccordionPage();
+	private MenuPage menu = new MenuPage();
+	private AccordionPage page = new AccordionPage();
 	
 	@Test
 	public void interagirComAccordion() {
