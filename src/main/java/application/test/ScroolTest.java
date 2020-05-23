@@ -12,13 +12,12 @@ public class ScroolTest extends BaseTest {
 	private MenuPage menu = new MenuPage();
 	
 	@Test
-	public void swipeDown() {
+	public void scrool() {
 		
 		//Wait Formulário
 		menu.espera();
 		
-		//scroll down de 90% a 10% da tela
-		menu.scroll(0.9, 0.1);
+		menu.scrollDown();
 		
 		//clicar menu
 		menu.clicarPorTexto("Opção bem escondida");

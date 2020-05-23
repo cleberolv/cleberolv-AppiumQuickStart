@@ -102,20 +102,22 @@ public class BasePage {
 
 		}
 		
-		//Direcionais
+		/*Direcionais: 
+		 * De 10% a 90% da tela ou vice-versa 
+		*/
 		
 		public void scrollDown() {
-			scroll(0.1, 0.9);
-		}
-		
-		public void scrollUP() {
 			scroll(0.9, 0.1);
 		}
-		
+	
+		public void scrollUP() {
+			scroll(0.1, 0.9);
+		}
+	
 		public void swipeLeft() {
 			swipe(0.1, 0.9);
 		}
-		
+	
 		public void SwipeRight() {
 			swipe(0.9, 0.1);
 		}
