@@ -99,7 +99,22 @@ public class BasePage {
 
 			new TouchAction<>(getDriver()).longPress(PointOption.point(start_x, y)).moveTo(PointOption.point(end_x, y))
 					.release().perform();
+		}
+		
+		//Swipe - horizontal (elemento)
+		public void swipeElement(MobileElement element, double inicio, double fim) {
+			
+			//Define a localização do elemento
+			int y = element.getLocation().y + (element.getSize().height / 2);
 
+			// Define as ações de scroll
+			int start_x = (int) (element.getSize().width * inicio);
+			int end_x = (int) (element.getSize().width * fim);
+
+			// Realiza as ações de scrool
+
+			new TouchAction<>(getDriver()).longPress(PointOption.point(start_x, y)).moveTo(PointOption.point(end_x, y))
+					.release().perform();
 		}
 		
 		/*Direcionais: 

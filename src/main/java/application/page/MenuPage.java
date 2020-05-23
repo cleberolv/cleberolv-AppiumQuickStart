@@ -34,4 +34,9 @@ public class MenuPage extends BasePage {
 		page.scroll(0.9, 0.1);
 		clicarPorTexto("Swipe");
 	}
+	
+	public void acessarMenuSwipeList() {
+		page.scroll(0.9, 0.1);
+		clicarPorTexto("Swipe List");
+	}
 }
