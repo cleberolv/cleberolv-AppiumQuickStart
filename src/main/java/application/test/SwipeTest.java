@@ -15,7 +15,7 @@ public class SwipeTest extends BaseTest{
 	@Test
 	public void swipe() {
 		//acessar menu
-		page.espera();
+		page.esperaMenu();
 		menu.acessarMenuSwipe();
 		
 		//verficar texto "A esqueda..."

@@ -15,7 +15,7 @@ public class ScroolTest extends BaseTest {
 	public void scrool() {
 		
 		//Wait Formulário
-		menu.espera();
+		menu.esperaMenu();
 		
 		menu.scrollDown();
 		

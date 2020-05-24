@@ -31,12 +31,17 @@ public class MenuPage extends BasePage {
 	}
 	
 	public void acessarMenuSwipe() {
-		page.scroll(0.9, 0.1);
+		page.scrollDown();
 		clicarPorTexto("Swipe");
 	}
 	
 	public void acessarMenuSwipeList() {
-		page.scroll(0.9, 0.1);
+		page.scrollDown();
 		clicarPorTexto("Swipe List");
+	}
+	
+	public void acessarMenuDragAndDrop() {
+		page.scroll(0.9, 0.1);
+		clicarPorTexto("Drag and drop");
 	}
 }

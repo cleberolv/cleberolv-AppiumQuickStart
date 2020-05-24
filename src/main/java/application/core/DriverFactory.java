@@ -40,7 +40,6 @@ public class DriverFactory {
 
 	//TimeOut padrão
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-		
 	}
 
 	//Encerra sessão

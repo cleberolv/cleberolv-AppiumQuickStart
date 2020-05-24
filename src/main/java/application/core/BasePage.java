@@ -15,7 +15,7 @@ import io.appium.java_client.touch.offset.PointOption;
 
 public class BasePage {
 	
-	public void espera() {
+	public void esperaMenu() {
 		//Aguarda até a visibilidade do elemento fomulário 
 		WebDriverWait wait = new WebDriverWait(getDriver(), 10);
 		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@text='Formulário']")));

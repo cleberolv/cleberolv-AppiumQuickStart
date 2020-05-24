@@ -15,7 +15,7 @@ public class SwipeListTest extends BaseTest {
 	
 	@Before
 	public void menuSwipeList() {
-		page.espera();
+		page.esperaMenu();
 		menu.acessarMenuSwipeList();
 	}
 	
