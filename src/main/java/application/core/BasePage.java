@@ -14,9 +14,9 @@ import io.appium.java_client.TouchAction;
 import io.appium.java_client.touch.offset.PointOption;
 
 public class BasePage {
-	
+
 	public void esperaMenu() {
-		//Aguarda até a visibilidade do elemento fomulário 
+		// Aguarda até a visibilidade do elemento fomulário
 		WebDriverWait wait = new WebDriverWait(getDriver(), 10);
 		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@text='Formulário']")));
 		System.out.println("Elemento encontrado, iniciando teste...");
@@ -66,8 +66,8 @@ public class BasePage {
 		new TouchAction<>(getDriver()).tap(PointOption.point(x, y)).perform();
 	}
 
-		//Scroll - vertical
-		public void scroll(double inicio, double fim) {
+	// Scroll - vertical
+	public void scroll(double inicio, double fim) {
 		Dimension size = getDriver().manage().window().getSize();
 
 		// Faz a primeira localização da tela: vertical 50%
@@ -83,11 +83,11 @@ public class BasePage {
 				.release().perform();
 
 	}
-		
-		//Scroll - vertical (elemento)
-		public void scrollElement(MobileElement element, double inicio, double fim) {
-					
-		//Define a localização do elemento
+
+	// Scroll - vertical (elemento)
+	public void scrollElement(MobileElement element, double inicio, double fim) {
+
+		// Define a localização do elemento
 		int x = element.getLocation().x + (element.getSize().width / 2);
 
 		// Define as ações de scroll
@@ -97,59 +97,59 @@ public class BasePage {
 		// Realiza as ações de scrool
 
 		new TouchAction<>(getDriver()).longPress(PointOption.point(x, start_y)).moveTo(PointOption.point(x, end_y))
-			.release().perform();
-		}
-	
-		//Swipe - horizontal
-		public void swipe(double inicio, double fim) {
-			Dimension size = getDriver().manage().window().getSize();
+				.release().perform();
+	}
 
-			// Faz a primeira localização da tela: vertical 50%
-			int y = size.height / 2;
+	// Swipe - horizontal
+	public void swipe(double inicio, double fim) {
+		Dimension size = getDriver().manage().window().getSize();
 
-			// Define as ações de scroll
-			int start_x = (int) (size.width * inicio);
-			int end_x = (int) (size.width * fim);
+		// Faz a primeira localização da tela: vertical 50%
+		int y = size.height / 2;
 
-			// Realiza as ações de scrool
+		// Define as ações de scroll
+		int start_x = (int) (size.width * inicio);
+		int end_x = (int) (size.width * fim);
 
-			new TouchAction<>(getDriver()).longPress(PointOption.point(start_x, y)).moveTo(PointOption.point(end_x, y))
-					.release().perform();
-		}
-		
-		//Swipe - horizontal (elemento)
-		public void swipeElement(MobileElement element, double inicio, double fim) {
-			
-			//Define a localização do elemento
-			int y = element.getLocation().y + (element.getSize().height / 2);
+		// Realiza as ações de scrool
 
-			// Define as ações de scroll
-			int start_x = (int) (element.getSize().width * inicio);
-			int end_x = (int) (element.getSize().width * fim);
+		new TouchAction<>(getDriver()).longPress(PointOption.point(start_x, y)).moveTo(PointOption.point(end_x, y))
+				.release().perform();
+	}
 
-			// Realiza as ações de scrool
+	// Swipe - horizontal (elemento)
+	public void swipeElement(MobileElement element, double inicio, double fim) {
 
-			new TouchAction<>(getDriver()).longPress(PointOption.point(start_x, y)).moveTo(PointOption.point(end_x, y))
-					.release().perform();
-		}
-		
-		/*Direcionais: 
-		 * De 10% a 90% da tela ou vice-versa 
-		*/
-		
-		public void scrollDown() {
-			scroll(0.9, 0.1);
-		}
-	
-		public void scrollUP() {
-			scroll(0.1, 0.9);
-		}
-	
-		public void swipeLeft() {
-			swipe(0.1, 0.9);
-		}
-	
-		public void SwipeRight() {
-			swipe(0.9, 0.1);
-		}
+		// Define a localização do elemento
+		int y = element.getLocation().y + (element.getSize().height / 2);
+
+		// Define as ações de scroll
+		int start_x = (int) (element.getSize().width * inicio);
+		int end_x = (int) (element.getSize().width * fim);
+
+		// Realiza as ações de scrool
+
+		new TouchAction<>(getDriver()).longPress(PointOption.point(start_x, y)).moveTo(PointOption.point(end_x, y))
+				.release().perform();
+	}
+
+	/*
+	 * Direcionais: De 10% a 90% da tela ou vice-versa
+	 */
+
+	public void scrollDown() {
+		scroll(0.9, 0.1);
+	}
+
+	public void scrollUP() {
+		scroll(0.1, 0.9);
+	}
+
+	public void swipeLeft() {
+		swipe(0.1, 0.9);
+	}
+
+	public void SwipeRight() {
+		swipe(0.9, 0.1);
+	}
 }

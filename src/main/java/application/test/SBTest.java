@@ -2,32 +2,37 @@ package application.test;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.openqa.selenium.By;
 
 import application.core.BasePage;
 import application.core.BaseTest;
 import application.page.MenuPage;
-import application.page.SBContasPage;
-import application.page.SBLoginPage;
-import application.page.SBMovimentacaoPage;
+import application.page.SB.SBContasPage;
+import application.page.SB.SBHomePage;
+import application.page.SB.SBLoginPage;
+import application.page.SB.SBMenuPage;
+import application.page.SB.SBMovimentacaoPage;
+import application.page.SB.SBResumoPage;
 import junit.framework.Assert;
 
 public class SBTest extends BaseTest {
 	
 	//Base
-	private MenuPage menu = new MenuPage();
+	private MenuPage menuPage = new MenuPage();
 	private BasePage page = new BasePage();
 	
-	//Acessos & Menus
+	//Acessos & Menus SB
 	private SBLoginPage login = new SBLoginPage();
 	private SBContasPage contas = new SBContasPage();
 	private SBMovimentacaoPage mov = new SBMovimentacaoPage();
+	private SBMenuPage menu = new SBMenuPage();
+	private SBHomePage home = new SBHomePage();
+	private SBResumoPage resumo = new SBResumoPage();
 	
 	@Before
 	public void login() {
-		menu.acessarMenuSB();
-		login.setEmail("cleber@test.com.br");
-		login.setSenha("cleber");
+		menuPage.acessarMenuSB();
+		login.setEmail("o@c");
+		login.setSenha("a");
 		login.btnEntrar();
 	}
 	
@@ -36,39 +41,39 @@ public class SBTest extends BaseTest {
 	@Test
 	public void incluirConta() {
 		//Acessar aba contas
-		page.clicarPorTexto("CONTAS");
+		menu.abaContas();
 		
 		//Preencher nome da conta
-		page.escreverFormulario(By.className("android.widget.EditText"), "Conta da Fernanda");
+		contas.setConta("Conta da Fernanda");
 		
 		//Salvar
-		page.clicarPorTexto("SALVAR");
+		contas.btnSalvar();
 		
 		//Validar
 		contas.esperaElemento("Conta adicionada com sucesso");
 		page.scrollDown();
-		Assert.assertTrue(page.checkElementoTexto("Conta da Fernanda"));
+		Assert.assertTrue(contas.checkElementoTexto("Conta da Fernanda"));
 	}
 	
 	@Test
 	public void contaJaExistente() {
 		//Acessar aba contas
-		page.clicarPorTexto("CONTAS");
+		menu.abaContas();
 		
 		//Preencher nome da conta
-		page.escreverFormulario(By.className("android.widget.EditText"), "Conta mesmo nome");
+		contas.setConta("Conta mesmo nome");
 		
 		//Salvar
-		page.clicarPorTexto("SALVAR");
+		contas.btnSalvar();
 		
 		//Validar
-		Assert.assertTrue(page.checkElementoTexto("Problemas de comunicação"));
+		Assert.assertTrue(contas.checkElementoTexto("Problemas de comunicação"));
 	}
 	
 	@Test
 	public void excluirConta() {
 		//Acessar aba contas
-		page.clicarPorTexto("CONTAS");
+		menu.abaContas();
 		
 		//Localizar conta
 		contas.esperaElemento("Conta para alterar");
@@ -77,7 +82,7 @@ public class SBTest extends BaseTest {
 		contas.cliqueLongo("Conta para alterar");
 		
 		//Excluir
-		page.clicarPorTexto("EXCLUIR");
+		contas.btnExcluir();
 		
 		//Validar
 		Assert.assertTrue(page.checkElementoTexto("Conta excluída com sucesso"));
@@ -86,7 +91,7 @@ public class SBTest extends BaseTest {
 	@Test
 	public void contaInexistente() {
 		//Acessar aba contas
-		page.clicarPorTexto("CONTAS");
+		menu.abaContas();
 		
 		//Validar que conta não existe na lista
 		Assert.assertFalse(page.checkElementoTexto("Conta do Mark Manson"));
@@ -97,7 +102,7 @@ public class SBTest extends BaseTest {
 	@Test
 	public void inconssitenciasMov() {
 		//Acessar aba Movimentações
-		page.clicarPorTexto("MOV...");
+		menu.abaMovimentacoes();
 		
 		//Salvar
 		mov.btnSalvar();
@@ -136,7 +141,7 @@ public class SBTest extends BaseTest {
 	@Test
 	public void cadastrarMovimentacao() {
 		//Acessar aba Movimentações
-		page.clicarPorTexto("MOV...");
+		menu.abaMovimentacoes();
 		
 		//Preencher Descição
 		mov.setDescricao("Descrição");
@@ -159,35 +164,31 @@ public class SBTest extends BaseTest {
 	
 	@Test
 	public void excluirMovimentacao() {
-		//mov.esperaCebacalho();
-		mov.scrollElementDown("Conta para extrato");
 		
 		//Validar Movimentação
-		mov.esperaTexto("Conta para movimentacoes");
+		Assert.assertEquals("534.00", home.obterSaldoConta("Conta para saldo"));
 		
 		//Acessar aba Resumo
-		page.clicarPorTexto("RESUMO");
-		
-		page.scrollDown();
-		
+		menu.abaResumo();
+			
 		//Validar elemento para exclusão
-		mov.esperaTexto("Conta para movimentacoes");
+		resumo.esperaTexto("Movimentacao 3, calculo saldo");
 		
 		//deslizar para excluir
-		mov.swipeElementRight("Conta para movimentacoes");
+		resumo.swipeElementRight("Movimentacao 3, calculo saldo");
 		
 		//Clicar no botao excluir
-		mov.clicarBotaoDeletar();
+		resumo.clicarBotaoDeletar();
 		
 		//Validar exclusão
-		mov.esperaTexto("Movimentação removida com sucesso!");
+		resumo.esperaTexto("Movimentação removida com sucesso!");
 		
 		//Acessar aba Resumo
-		page.clicarPorTexto("HOME");
+		menu.abaHome();
 		
 		//Validar que a exclusão foi efetuada
-		//mov.esperaCebacalho();
-		page.scrollUP();
-		Assert.assertFalse(page.checkElementoTexto("Conta para movimentacoes"));
+		esperar(1000);
+		page.scroll(0.2, 0.9);
+		Assert.assertEquals("-1000.00", home.obterSaldoConta("Conta para saldo"));
 	}
 }
