@@ -41,7 +41,11 @@ public class MenuPage extends BasePage {
 	}
 	
 	public void acessarMenuDragAndDrop() {
-		page.scroll(0.9, 0.1);
+		page.scrollDown();
 		clicarPorTexto("Drag and drop");
+	}
+	
+	public void acessarMenuSB() {
+		clicarPorTexto("SeuBarriga Nativo");
 	}
 }

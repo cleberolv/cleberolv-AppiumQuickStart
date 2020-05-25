@@ -66,8 +66,8 @@ public class BasePage {
 		new TouchAction<>(getDriver()).tap(PointOption.point(x, y)).perform();
 	}
 
-	//Scroll - vertical
-	public void scroll(double inicio, double fim) {
+		//Scroll - vertical
+		public void scroll(double inicio, double fim) {
 		Dimension size = getDriver().manage().window().getSize();
 
 		// Faz a primeira localização da tela: vertical 50%
@@ -83,8 +83,24 @@ public class BasePage {
 				.release().perform();
 
 	}
+		
+		//Scroll - vertical (elemento)
+		public void scrollElement(MobileElement element, double inicio, double fim) {
+					
+		//Define a localização do elemento
+		int x = element.getLocation().x + (element.getSize().width / 2);
+
+		// Define as ações de scroll
+		int start_y = (int) (element.getSize().height * inicio);
+		int end_y = (int) (element.getSize().height * fim);
+
+		// Realiza as ações de scrool
+
+		new TouchAction<>(getDriver()).longPress(PointOption.point(x, start_y)).moveTo(PointOption.point(x, end_y))
+			.release().perform();
+		}
 	
-	//Swipe - horizontal
+		//Swipe - horizontal
 		public void swipe(double inicio, double fim) {
 			Dimension size = getDriver().manage().window().getSize();
 
