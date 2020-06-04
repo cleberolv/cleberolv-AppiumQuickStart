@@ -2,9 +2,11 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>br.ce.wcaquino.cursoAppium</groupId>
+	<groupId>oliveira.cleber</groupId>
 	<artifactId>CursoAppium</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	<name>CT Appium</name>
+	<description>Realizando testes com o aplicativo CT appium</description>
 
 	<dependencies>
 		<dependency>
@@ -19,6 +21,12 @@
 			<version>4.13</version>
 			<scope>test</scope>
 		</dependency>
-	</dependencies>
 
+		<dependency>
+			<groupId>org.testng</groupId>
+			<artifactId>testng</artifactId>
+			<version>7.1.0</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
 </project>
