@@ -2,19 +2,19 @@
 <testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="15391" started-at="2020-06-04T22:54:50Z" finished-at="2020-06-04T22:55:06Z">
+  <suite name="Default suite" duration-ms="20850" started-at="2020-06-05T00:30:43Z" finished-at="2020-06-05T00:31:04Z">
     <groups>
       <group name="TestNGConf">
         <method signature="TabsTest.Tabs()[pri:1, instance:application.test.TabsTest@71423665]" name="Tabs" class="application.test.TabsTest"/>
       </group> <!-- TestNGConf -->
     </groups>
-    <test name="Default test" duration-ms="15391" started-at="2020-06-04T22:54:50Z" finished-at="2020-06-04T22:55:06Z">
+    <test name="Default test" duration-ms="20850" started-at="2020-06-05T00:30:43Z" finished-at="2020-06-05T00:31:04Z">
       <class name="application.test.TabsTest">
-        <test-method status="PASS" signature="menu()[pri:0, instance:application.test.TabsTest@71423665]" name="menu" is-config="true" duration-ms="13656" started-at="2020-06-04T22:54:50Z" finished-at="2020-06-04T22:55:04Z">
+        <test-method status="PASS" signature="menu()[pri:0, instance:application.test.TabsTest@71423665]" name="menu" is-config="true" duration-ms="19156" started-at="2020-06-05T00:30:43Z" finished-at="2020-06-05T00:31:02Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- menu -->
-        <test-method status="PASS" signature="Tabs()[pri:1, instance:application.test.TabsTest@71423665]" name="Tabs" duration-ms="1702" started-at="2020-06-04T22:55:04Z" finished-at="2020-06-04T22:55:06Z">
+        <test-method status="PASS" signature="Tabs()[pri:1, instance:application.test.TabsTest@71423665]" name="Tabs" duration-ms="1668" started-at="2020-06-05T00:31:02Z" finished-at="2020-06-05T00:31:04Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Tabs -->
