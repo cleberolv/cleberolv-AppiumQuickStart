@@ -34,5 +34,5 @@ Para iniciar o desenvolvimento, será necessário clonar o projeto do GitHub em 
 ```bash
 mkdir "seu_diretorio"
 cd "seu_diretorio"
-https://github.com/cleberolv/cleberolv-Estudos-Appium.git
+https://github.com/cleberolv/cleberolv-AppiumQuickStart.git
 ```
