@@ -15,41 +15,27 @@ public class SwipeListTest extends BaseTest {
 	
 	@Before
 	public void menuSwipeList() {
-		page.esperaMenu();
-		menu.acessarMenuSwipeList();
+		page.waitMenu();
+		menu.swipeList();
 	}
 	
 	@Test
-	public void swipeListMais() {
-		
-		//Swipe opção 1 para direita
+	public void interativeSwipeList1() {
 		page.swipeElementRight("Opção 1");
-		
-		//Clicar em "+" na opção 1
-		page.clicarBotaoMais();
-		
-		//Verificar Opção 1 (+)
-		Assert.assertTrue(menu.checkElementoTexto("Opção 1 (+)"));
+		page.BtnMoreOptions();
+		Assert.assertTrue(menu.checkTextElement("Opção 1 (+)"));
 	}
 	
 	@Test	
-	public void swipeListMenos() {
-		//Swipe opção 4 para direita
+	public void interativeSwipeList4() {
 		page.swipeElementRight("Opção 4");
-		
-		//Clicar em "(-)"
-		page.clicarPorTexto("(-)");
-		
-		//Verificar Opção 4 (-)
-		Assert.assertTrue(menu.checkElementoTexto("Opção 4 (-)"));
+		page.clickByText("(-)");
+		Assert.assertTrue(menu.checkTextElement("Opção 4 (-)"));
 	}
 	
 	@Test	
 	public void swipeListRestart() {
-		//Swipe opção 5 para esquerda
 		page.swipeElementLeft("Opção 5 (-)");
-		
-		//Verificar Opção 1 (+)
-		Assert.assertTrue(menu.checkElementoTexto("Opção 5"));
+		Assert.assertTrue(menu.checkTextElement("Opção 5"));
 	}
 }

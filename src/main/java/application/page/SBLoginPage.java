@@ -7,15 +7,15 @@ import application.core.BasePage;
 public class SBLoginPage extends BasePage {
 	
 	public void setEmail(String email) {
-		escreverFormulario(By.className("android.widget.EditText"), email);
+		write(By.className("android.widget.EditText"), email);
 	}
 	
 	public void setSenha(String senha) {
-		escreverFormulario(By.xpath("//android.widget.EditText[2]"), senha);
+		write(By.xpath("//android.widget.EditText[2]"), senha);
 	}
 	
-	public void btnEntrar() {
-		clicarPorTexto("ENTRAR");
+	public void btnEnter() {
+		clickByText("ENTRAR");
 	}
 
 }

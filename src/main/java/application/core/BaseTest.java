@@ -13,35 +13,32 @@ import org.openqa.selenium.TakesScreenshot;
 
 public class BaseTest {
 	
-	//Wait em milissegunos
-	public void esperar(long tempo) {
+	public void await(long timeMs) {
 		try {
-			Thread.sleep(tempo);
+			Thread.sleep(timeMs);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
 	}
 	
 	@Rule
-	//Determina nome das screenshots
+	// Screenshots
 	public TestName testName = new TestName();
 	
 	
 	@AfterClass
-	//Otimização de performance 
-	public static void finalizaClasse() {
+	// Performance gain
+	public static void finishClass() {
 		DriverFactory.getDriver().resetApp();
 	}
 	
 	@After
-	//Encerra a sessão
 	public void tearDown(){
-		gerarScreenshot();
+		takeScreenshot();
 		DriverFactory.killDriver();
 	}
-	
-	//Gera screenshot
-	public void gerarScreenshot() {
+
+	public void takeScreenshot() {
 		File imagem = ((TakesScreenshot) DriverFactory.getDriver()).getScreenshotAs(OutputType.FILE);
 		try {
 			FileUtils.copyFile(imagem, new File ("target/screenshots/" +testName.getMethodName() + ".png"));

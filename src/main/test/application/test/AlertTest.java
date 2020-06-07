@@ -15,41 +15,28 @@ public class AlertTest extends BaseTest {
 	
 	@Before
 	public void menu() {
-		menu.acessarMenuAlert();
+		menu.alert();
 	}
-	
 	
 	@Test
 	public void testAlert() {
 		
-		//clicar no botão alert confirm
 		page.btnAlertConfirm();
+		Assert.assertEquals("Info", page.getTitleAlert());
+		Assert.assertEquals("Confirma a operação?", page.getMessageAlert());
 		
-		//Validar PopUp Alert
-		Assert.assertEquals("Info", page.obterTituloAlerta());
-		Assert.assertEquals("Confirma a operação?", page.obterMensagemAlerta());
+		page.confirm();
 		
-		//clicar no botão confirmar
-		page.confirmar();
-		
-		//verificar nova mensagem
-		Assert.assertEquals("Confirmado", page.obterMensagemAlerta());
-		
-		//sair
-		page.sair();
+		await(1000);
+		Assert.assertEquals("Confirmado", page.getMessageAlert());
+		page.exit();
 	}
 	
 	@Test
-	public void clicarForaAlert() {
-		
-		//Clicar no alerta simples
-		page.clicarAlertSimples();
-		
-		//Clicar fora da caixa #Bug1
-		page.clicarForadaCaixa();
-		
-		//Validar que o alert desapareceu da tela
-		Assert.assertFalse(page.checkElementoTexto("Pode clicar no OK ou fora da caixa para sair"));
+	public void clickAwayAlert() {
+		page.clickSimpleAlert();
+		page.clickOK();
+		Assert.assertFalse(page.checkTextElement("Pode clicar no OK ou fora da caixa para sair"));
 	}
 
 }

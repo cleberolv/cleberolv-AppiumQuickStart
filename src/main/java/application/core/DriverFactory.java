@@ -14,22 +14,21 @@ public class DriverFactory {
 
 	private static AndroidDriver<MobileElement> driver;
 
-	// Verifica se já há uma sessão, se não, cria uma nova.
+	//Check session or create a new. 
 	public static AndroidDriver<MobileElement> getDriver() {
 		if (driver == null) {
-//			createDriver();
-			createTestObjectDriver();
+			createVirtualDriver();
+//			createCloudDriver();
 		}
 		return driver;
 	}
 
-	// Capabilities para aparelho virtual
-	private static void createDriver() {
+	private static void createVirtualDriver() {
 		DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
 		desiredCapabilities.setCapability("platformName", "Android");
 		desiredCapabilities.setCapability("deviceName", "emulator-5554");
 		desiredCapabilities.setCapability("automationName", "uiautomator2");
-		desiredCapabilities.setCapability(MobileCapabilityType.APP, "/home/inmetrics/eclipse-workspace/CursoAppium/src/main/resources/AppiumCT.apk");
+		desiredCapabilities.setCapability(MobileCapabilityType.APP, "/home/inmetrics/eclipse-workspace/AppiumQuickStart/src/main/resources/AppiumCT.apk");
 
 		try {
 			driver = new AndroidDriver<MobileElement>(new URL("http://127.0.0.1:4723/wd/hub"), desiredCapabilities);
@@ -37,17 +36,17 @@ public class DriverFactory {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 	}
 
-	// Capabilities para aparelho na nuvem
-	private static void createTestObjectDriver() {
+	private static void createCloudDriver() {
 		DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
 		desiredCapabilities.setCapability("platformName", "Android");
 		desiredCapabilities.setCapability("testobject_api_key", "C5ADE955983F4642B086A3817546E12E");
 		desiredCapabilities.setCapability("appiumVersion", "1.17.0");
 		desiredCapabilities.setCapability("automationName", "uiautomator2");
 		desiredCapabilities.setCapability("autoGrantPermissions", "true");
-
 
 		try {
 			driver = new AndroidDriver<MobileElement>(new URL("https://appium.testobject.com/wd/hub"), desiredCapabilities);
@@ -56,11 +55,10 @@ public class DriverFactory {
 			e.printStackTrace();
 		}
 
-		// TimeOut padrão
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 	}
 
-	// Encerra sessão
+	//Close the session after tests
 	public static void killDriver() {
 		if (driver != null) {
 			driver.quit();

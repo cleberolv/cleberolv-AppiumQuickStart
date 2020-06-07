@@ -13,18 +13,11 @@ public class SplashTest extends BaseTest {
 	private SplashPage page = new SplashPage();
 	
 	@Test
-	public void testSplash() {
-		//Acessar Menu Splash
-		menu.acessarMenuSplash();
-		
-		//Verificar exibição do splash
-		page.textoSplashVisivel();
-		
-		//Aguardar saída do splash
-		page.textoSplashInvisivel();
-		
-		//Verificar o fomulário
-		Assert.assertTrue(page.checkElementoTexto("Splash!"));
+	public void interativeSplash() {
+		menu.splash();
+		page.splashTextVisible();
+		page.splasTextInvisible();
+		Assert.assertTrue(page.checkTextElement("Splash!"));
 	}
 	
 }

@@ -6,46 +6,46 @@ public class MenuPage extends BasePage {
 	
 	BasePage page = new BasePage();
 	
-	public void acessarFormulario() {
-		clicarPorTexto("Formulário");
+	public void form() {
+		clickByText("Formulário");
 	}
 	
-	public void acessarMenuSplash() {
-		clicarPorTexto("Splash");
+	public void splash() {
+		clickByText("Splash");
 	}
 	
-	public void acessarMenuAlert() {
-		clicarPorTexto("Alertas");
+	public void alert() {
+		clickByText("Alertas");
 	}
 	
-	public void accessMenuTabs() {
-		clicarPorTexto("Abas");
+	public void tabs() {
+		clickByText("Abas");
 	}
 	
-	public void acessarMenuAccordion() {
-		clicarPorTexto("Accordion");
+	public void accordion() {
+		clickByText("Accordion");
 	}
 	
-	public void acessarMenuCliques() {
-		clicarPorTexto("Cliques");
+	public void clicks() {
+		clickByText("Cliques");
 	}
 	
-	public void acessarMenuSwipe() {
+	public void swipe() {
 		page.scrollDown();
-		clicarPorTexto("Swipe");
+		clickByText("Swipe");
 	}
 	
-	public void acessarMenuSwipeList() {
+	public void swipeList() {
 		page.scrollDown();
-		clicarPorTexto("Swipe List");
+		clickByText("Swipe List");
 	}
 	
-	public void acessarMenuDragAndDrop() {
+	public void dragAndDrop() {
 		page.scrollDown();
-		clicarPorTexto("Drag and drop");
+		clickByText("Drag and drop");
 	}
 	
-	public void acessarMenuSB() {
-		clicarPorTexto("SeuBarriga Nativo");
+	public void SB() {
+		clickByText("SeuBarriga Nativo");
 	}
 }

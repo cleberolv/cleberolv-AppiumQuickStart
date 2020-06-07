@@ -13,32 +13,23 @@ public class SwipeTest extends BaseTest{
 	private BasePage page = new BasePage();
 
 	@Test
-	public void swipe() {
+	public void interativeSwipe() {
 		//acessar menu
-		page.esperaMenu();
-		menu.acessarMenuSwipe();
+		page.waitMenu();
+		menu.swipe();
 		
-		//verficar texto "A esqueda..."
-		Assert.assertTrue(menu.checkElementoTexto("a esquerda"));
+		Assert.assertTrue(menu.checkTextElement("a esquerda"));
 		
 		menu.SwipeRight();
+		Assert.assertTrue(menu.checkTextElement("E veja se"));
 		
-		//verficar texto "E veja se..."
-		Assert.assertTrue(menu.checkElementoTexto("E veja se"));
-		
-		//clicar botão direita
-		page.clicarPorTexto("›");
-		
-		//verficar texto "Chegar até o fim"
-		Assert.assertTrue(menu.checkElementoTexto("Chegar até o fim!"));
+		page.clickByText("›");
+		Assert.assertTrue(menu.checkTextElement("Chegar até o fim!"));
 		
 		menu.swipeLeft();
 		
-		//clicar botão esquerdo
-		page.clicarPorTexto("‹");
-		
-		//verficar texto "A esqueda..."
-		Assert.assertTrue(menu.checkElementoTexto("a esquerda"));
+		page.clickByText("‹");
+		Assert.assertTrue(menu.checkTextElement("a esquerda"));
 	}
 	
 }

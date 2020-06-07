@@ -7,31 +7,35 @@ import application.core.BasePage;
 public class AlertPage extends BasePage {
 	
 	public void btnAlertConfirm() {
-		clicarPorTexto("ALERTA CONFIRM");
+		clickByText("ALERTA CONFIRM");
 	}
 	
-	public String obterTituloAlerta() {
-		return obterTexto(By.id("android:id/alertTitle"));
-	}
-	
-	public String obterMensagemAlerta() {
-		return obterTexto(By.id("android:id/message"));
-	}
-	
-	public void confirmar() {
-		clicarPorTexto("CONFIRMAR");
-	}
-	
-	public void sair() {
-		clicarPorTexto("SAIR");
-	}
-	
-	public void clicarAlertSimples() {
-		clicarPorTexto("ALERTA SIMPLES");
+	public String getTitleAlert() {
+		return getText(By.id("android:id/alertTitle"));
 	}
 
-	public void clicarForadaCaixa() {
-		tap(780, 20);
+	public String getMessageAlert() {
+		return getText(By.id("android:id/message"));
+	}
+	
+	public void confirm() {
+		clickByText("CONFIRMAR");
+	}
+	
+	public void exit() {
+		clickByText("SAIR");
+	}
+	
+	public void clickOK() {
+		clickByText("OK");
+	}
+	
+	public void clickSimpleAlert() {
+		clickByText("ALERTA SIMPLES");
+	}
+
+	public void clickOut() {
+		tap(500, 500);
 	}
 	
 }

@@ -13,30 +13,26 @@ import io.appium.java_client.touch.offset.ElementOption;
 
 public class DragAndDropPage extends BasePage {
 	
-	public void mover (String origem, String destino) {
-		//MobileElement inicio = getDriver().findElement(By.xpath("//*[@text='" +origem+ "']"));
-		//MobileElement fim = getDriver().findElement(By.xpath("//*[@text='" +destino+ "']"));
-			
+	public void move (String by, String to) {
 			new TouchAction<>(getDriver())
 			.longPress(ElementOption.element(getDriver()
-			.findElement(By.xpath("//*[@text='"+origem+"']"))))
+			.findElement(By.xpath("//*[@text='"+ by +"']"))))
 
 			.moveTo(ElementOption.element(getDriver()
-			.findElement(By.xpath("//*[@text='"+destino+"']"))))
+			.findElement(By.xpath("//*[@text='"+ to +"']"))))
 			.release()
 			.perform();
 	}
 	
-	public String[] obterLista() {
+	public String[] getList() {
 		List <MobileElement> elements = getDriver().findElements(By.className("android.widget.TextView"));
-		String[] retorno = new String[elements.size()];
+		String[] returnList = new String[elements.size()];
 		
 		for (int i = 0; i < elements.size(); i++) {
-			retorno[i] = elements.get(i).getText();
+			returnList[i] = elements.get(i).getText();
 			//System.out.print("\""  + retorno[i] + "\", ");
 		}
-		return retorno;
+		return returnList;
 	}
-	
 	
 }

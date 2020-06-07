@@ -11,11 +11,11 @@ import application.core.BasePage;
 
 public class SplashPage extends BasePage {
 	
-	public boolean textoSplashVisivel() {
-		return checkElementoTexto("Splash!");
+	public boolean splashTextVisible() {
+		return checkTextElement("Splash!");
 	}
 	
-	public void textoSplashInvisivel() {
+	public void splasTextInvisible() {
 		getDriver().manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
 		WebDriverWait wait = new WebDriverWait(getDriver(), 10);
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("Splash!")));

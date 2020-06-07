@@ -13,16 +13,11 @@ public class AccordionTest extends BaseTest {
 	private AccordionPage page = new AccordionPage();
 	
 	@Test
-	public void interagirComAccordion() {
-		
-		//Acessar menu
-		menu.acessarMenuAccordion();
-		
-		//Clicar na opção 1
-		page.AcessarAcordeon();
-		
-		//Validar texto da opção 1 #Bug2
-		Assert.assertEquals("Esta é a descrição da opção 1", page.validarAcordeon());
+	public void interactAccordion() {
+		menu.accordion();
+		page.acessAccordion();
+		await(1000);
+		Assert.assertEquals("Esta é a descrição da opção 1", page.validateAccordion()); 
 	}
 
 }

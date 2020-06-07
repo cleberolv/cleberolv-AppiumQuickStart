@@ -7,15 +7,15 @@ import application.core.BasePage;
 public class TabsPage extends BasePage {
 	
 	public String checkTabOne() {
-		return obterTexto(By.xpath("//*[contains(@text, 'Aba 1')]"));
+		return getText(By.xpath("//*[contains(@text, 'Aba 1')]"));
 	}
 	
 	public String checkTabTwo() {
-		return obterTexto(By.xpath("//*[contains(@text, 'Aba 2')]"));
+		return getText(By.xpath("//*[contains(@text, 'Aba 2')]"));
 	}
 	
 	public void changeTab() {
-		clicarPorTexto("ABA 2");
+		clickByText("ABA 2");
 	}
 	
 }

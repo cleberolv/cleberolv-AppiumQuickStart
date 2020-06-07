@@ -12,7 +12,7 @@ import io.appium.java_client.touch.offset.ElementOption;
 
 public class SBResumoPage extends BasePage {
 	
-	public void esperaTexto(String valor) {
+	public void waitForText(String valor) {
 		// Aguarda até a visibilidade do texto
 		WebDriverWait wait = new WebDriverWait(getDriver(), 10);
 		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@text='" + valor + "']")));
@@ -26,7 +26,7 @@ public class SBResumoPage extends BasePage {
 		swipeElement(getDriver().findElement(By.xpath("//*[@text = '" + movimentacao + "']/..")), 0.9, 0.1);
 	}
 	
-	public void clicarBotaoDeletar() {
+	public void clickBtnDelete() {
 		new TouchAction<>(getDriver())
 				.tap(ElementOption.element(getDriver()
 				.findElement(By.xpath("//*[@text='Del']/.."))))
