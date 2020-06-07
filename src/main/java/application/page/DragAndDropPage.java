@@ -30,7 +30,6 @@ public class DragAndDropPage extends BasePage {
 		
 		for (int i = 0; i < elements.size(); i++) {
 			returnList[i] = elements.get(i).getText();
-			//System.out.print("\""  + retorno[i] + "\", ");
 		}
 		return returnList;
 	}

@@ -18,8 +18,8 @@ public class FormPage extends BasePage{
 		return getText(MobileBy.AccessibilityId("nome"));
 	}
 
-	public void selectComboBox(String valor) {
-		selectComboBox(MobileBy.AccessibilityId("console"), valor);
+	public void selectComboBox(String value) {
+		selectComboBox(MobileBy.AccessibilityId("console"), value);
 	}
 	
 	public String checkComboBox() {
@@ -70,7 +70,7 @@ public class FormPage extends BasePage{
 		return getText(By.xpath("//android.widget.TextView[@index='16']"));
 	}
 	
-	public void clickSeekBar(double posicao) {
+	public void clickSeekBar(double position) {
 		int delta = 55;
 		MobileElement seek = getDriver().findElement(MobileBy.AccessibilityId("slid"));
 		
@@ -83,7 +83,7 @@ public class FormPage extends BasePage{
 		System.out.println(y);
 		
 		int xInicial = seek.getLocation().x + delta;
-		int x = (int) (xInicial + ((seek.getSize().width - 2*delta) * posicao));
+		int x = (int) (xInicial + ((seek.getSize().width - 2*delta) * position));
 		System.out.println(x);
 		
 		tap (x, y);

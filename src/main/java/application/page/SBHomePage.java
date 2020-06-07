@@ -6,7 +6,7 @@ import application.core.BasePage;
 
 public class SBHomePage extends BasePage {
 	
-	public String getBalance(String conta) {
-		return getText(By.xpath("//*[@text='"+conta+"']/following-sibling::android.widget.TextView"));
+	public String getBalance(String account) {
+		return getText(By.xpath("//*[@text='"+account+"']/following-sibling::android.widget.TextView"));
 	}
 }

@@ -13,7 +13,7 @@ import io.appium.java_client.remote.MobileCapabilityType;
 public class DriverFactory {
 
 	private static AndroidDriver<MobileElement> driver;
-
+	
 	//Check session or create a new. 
 	public static AndroidDriver<MobileElement> getDriver() {
 		if (driver == null) {
