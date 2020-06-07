@@ -1,5 +1,7 @@
 package application.test;
 
+import static org.junit.Assert.assertTrue;
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -36,14 +38,14 @@ public class SBTestAccount extends BaseTest {
 		
 		account.waitElement("Conta adicionada com sucesso");
 		page.scrollDown();
-		Assert.assertTrue(account.checkTextElement("Conta da Fernanda"));
+		assertTrue(account.checkTextElement("Conta da Fernanda"));
 	}
 	
 	@Test
 	public void accountAlreadyExists() {		
 		account.setConta("Conta mesmo nome");
 		account.btnSave();
-		Assert.assertTrue(account.checkTextElement("Problemas de comunicação"));
+		assertTrue(account.checkTextElement("Problemas de comunicação"));
 	}
 	
 	@Test
@@ -51,7 +53,7 @@ public class SBTestAccount extends BaseTest {
 		account.waitElement("Conta para alterar");
 		account.longClick("Conta para alterar");
 		account.btnDelete();
-		Assert.assertTrue(page.checkTextElement("Conta excluída com sucesso"));
+		assertTrue(page.checkTextElement("Conta excluída com sucesso"));
 	}
 	
 	@Test

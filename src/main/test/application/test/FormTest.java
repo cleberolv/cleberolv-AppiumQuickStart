@@ -1,6 +1,8 @@
 package application.test;
 
-import static junit.framework.Assert.assertEquals;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import java.net.MalformedURLException;
 import java.util.concurrent.TimeUnit;
@@ -16,7 +18,6 @@ import application.core.DriverFactory;
 import application.page.FormPage;
 import application.page.MenuPage;
 import io.appium.java_client.MobileBy;
-import junit.framework.Assert;
 
 public class FormTest extends BaseTest {
 	
@@ -37,19 +38,19 @@ public class FormTest extends BaseTest {
 	@Test
 	public void selectComboBox() throws MalformedURLException {
 		page.selectComboBox("Nintendo Switch");
-		Assert.assertEquals("Nintendo Switch", page.checkComboBox());
+		assertEquals("Nintendo Switch", page.checkComboBox());
 	}
 
 	@Test
 	public void switchAndCheckBox() throws MalformedURLException {
-		Assert.assertTrue(page.isCheckBoxCheked());
-		Assert.assertFalse(page.isSwitchCheked());
+		assertTrue(page.isCheckBoxCheked());
+		assertFalse(page.isSwitchCheked());
 
 		page.clickCheckBox();
 		page.clickSwitch();
 
-		Assert.assertFalse(page.isCheckBoxCheked());
-		Assert.assertTrue(page.isSwitchCheked());
+		assertFalse(page.isCheckBoxCheked());
+		assertTrue(page.isSwitchCheked());
 	}
 
 	@Test
@@ -61,10 +62,10 @@ public class FormTest extends BaseTest {
 
 		page.save();
 
-		Assert.assertEquals("Nome: Cleber Oliveira", page.getText());
-		Assert.assertEquals("Console: switch", page.getConsole());
-		Assert.assertEquals("Switch: Off", page.getSwitch());
-		Assert.assertEquals("Checkbox: Marcado", page.getCheckBox());
+		assertEquals("Nome: Cleber Oliveira", page.getText());
+		assertEquals("Console: switch", page.getConsole());
+		assertEquals("Switch: Off", page.getSwitch());
+		assertEquals("Checkbox: Marcado", page.getCheckBox());
 	}
 	
 	@Test
@@ -74,7 +75,7 @@ public class FormTest extends BaseTest {
 		page.saveProlonged();
 		WebDriverWait wait = new WebDriverWait(DriverFactory.getDriver(), 10);
 		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@text='Nome: Cleber Oliveira']")));
-		Assert.assertEquals("Nome: Cleber Oliveira", page.getText());
+		assertEquals("Nome: Cleber Oliveira", page.getText());
 	}
 	
 	@Test
@@ -82,7 +83,7 @@ public class FormTest extends BaseTest {
 		page.clickByText("01/01/2000");
 		page.clickByText("20");
 		page.clickByText("OK");
-		Assert.assertTrue(page.checkTextElement("20/2/2000"));
+		assertTrue(page.checkTextElement("20/2/2000"));
 	}
 	
 	@Test
@@ -91,14 +92,14 @@ public class FormTest extends BaseTest {
 		page.click(MobileBy.AccessibilityId("12"));
 		page.click(MobileBy.AccessibilityId("10"));
 		page.clickByText("OK");
-		Assert.assertTrue(page.checkTextElement("12:10"));
+		assertTrue(page.checkTextElement("12:10"));
 	}
 	
 	@Test
 	public void interactSeekBar() {
 		page.clickSeekBar(0.67);
 		page.save();
-		Assert.assertEquals("Slider: 67", page.getValueSeekBar());
+		assertEquals("Slider: 67", page.getValueSeekBar());
 	}
 
 }

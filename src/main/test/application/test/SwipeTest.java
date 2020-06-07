@@ -1,11 +1,12 @@
 package application.test;
 
+import static org.junit.Assert.assertTrue;
+
 import org.junit.Test;
 
 import application.core.BasePage;
 import application.core.BaseTest;
 import application.page.MenuPage;
-import junit.framework.Assert;
 
 public class SwipeTest extends BaseTest{
 	
@@ -18,18 +19,18 @@ public class SwipeTest extends BaseTest{
 		page.waitMenu();
 		menu.swipe();
 		
-		Assert.assertTrue(menu.checkTextElement("a esquerda"));
+		assertTrue(menu.checkTextElement("a esquerda"));
 		
 		menu.SwipeRight();
-		Assert.assertTrue(menu.checkTextElement("E veja se"));
+		assertTrue(menu.checkTextElement("E veja se"));
 		
 		page.clickByText("›");
-		Assert.assertTrue(menu.checkTextElement("Chegar até o fim!"));
+		assertTrue(menu.checkTextElement("Chegar até o fim!"));
 		
 		menu.swipeLeft();
 		
 		page.clickByText("‹");
-		Assert.assertTrue(menu.checkTextElement("a esquerda"));
+		assertTrue(menu.checkTextElement("a esquerda"));
 	}
 	
 }

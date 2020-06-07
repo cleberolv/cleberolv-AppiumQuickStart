@@ -1,12 +1,12 @@
 package application.test;
 
-import org.junit.Test;
+import static org.junit.Assert.assertEquals;
 
+import org.junit.Test;
 
 import application.core.BaseTest;
 import application.page.AlertPage;
 import application.page.MenuPage;
-import junit.framework.Assert;
 
 public class ScroolTest extends BaseTest {	
 	
@@ -25,7 +25,7 @@ public class ScroolTest extends BaseTest {
 		menu.clickByText("Opção bem escondida");
 		
 		//verificar mensagem
-		Assert.assertEquals("Você achou essa opção", alert.getMessageAlert());
+		assertEquals("Você achou essa opção", alert.getMessageAlert());
 		
 		//sair
 		menu.clickByText("OK");

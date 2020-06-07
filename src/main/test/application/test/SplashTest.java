@@ -1,6 +1,7 @@
 package application.test;
 
-import org.junit.Assert;
+import static org.junit.Assert.assertTrue;
+
 import org.junit.Test;
 
 import application.core.BaseTest;
@@ -17,7 +18,7 @@ public class SplashTest extends BaseTest {
 		menu.splash();
 		page.splashTextVisible();
 		page.splasTextInvisible();
-		Assert.assertTrue(page.checkTextElement("Splash!"));
+		assertTrue(page.checkTextElement("Splash!"));
 	}
 	
 }

@@ -1,5 +1,7 @@
 package application.test;
 
+import static org.junit.Assert.assertTrue;
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -7,7 +9,6 @@ import application.core.BaseTest;
 import application.page.MenuPage;
 import application.page.SBLoginPage;
 import application.page.SBResetPage;
-import junit.framework.Assert;
 
 public class SBResetTest extends BaseTest {
 
@@ -26,7 +27,7 @@ public class SBResetTest extends BaseTest {
 	@Test
 	public void restartData() {
 		reset.resetData();
-		Assert.assertTrue(page.checkTextElement("Dados resetados com sucesso!"));
+		assertTrue(page.checkTextElement("Dados resetados com sucesso!"));
 	}
 
 }

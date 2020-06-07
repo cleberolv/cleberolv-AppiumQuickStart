@@ -1,6 +1,6 @@
 package application.test;
 
-import org.testng.AssertJUnit;
+import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -20,8 +20,8 @@ public class TabsTestNG extends BaseTest {
 	
 	@Test(groups = {"Verify, Tabs"}, priority = 1, testName = "Check functionality - Tabs")
 	public void Tabs() {
-		AssertJUnit.assertEquals("Este é o conteúdo da Aba 1", page.checkTabOne());
+		Assert.assertEquals("Este é o conteúdo da Aba 1", page.checkTabOne());
 		page.changeTab();
-		AssertJUnit.assertEquals("Este é o conteúdo da Aba 2", page.checkTabTwo());
+		Assert.assertEquals("Este é o conteúdo da Aba 2", page.checkTabTwo());
 	}
 }

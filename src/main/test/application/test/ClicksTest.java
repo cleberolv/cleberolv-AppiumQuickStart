@@ -1,8 +1,9 @@
 package application.test;
 
-import org.junit.Assert;
-import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+
 import org.junit.Before;
+import org.junit.Test;
 
 import application.core.BaseTest;
 import application.page.ClicksPage;
@@ -21,14 +22,14 @@ public class ClicksTest extends BaseTest {
 	@Test
 	public void longClick() {
 		page.longClick();
-		Assert.assertEquals("Clique Longo", page.getTextField());
+		assertEquals("Clique Longo", page.getTextField());
 	}
 	
 	@Test
 	public void doubleClick() {
 		page.clickByText("Clique duplo");
 		page.clickByText("Clique duplo");
-		Assert.assertEquals("Duplo Clique", page.getTextField());
+		assertEquals("Duplo Clique", page.getTextField());
 	}
 	
 }

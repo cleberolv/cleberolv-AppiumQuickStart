@@ -1,6 +1,7 @@
 package application.test;
 
-import org.junit.Assert;
+import static org.junit.Assert.assertArrayEquals;
+
 import org.junit.Test;
 
 import application.core.BaseTest;
@@ -22,15 +23,15 @@ public class DragAndDrop extends BaseTest{
 		menu.dragAndDrop();
 		
 		await(3000);
-		Assert.assertArrayEquals(initialState, page.getList());
+		assertArrayEquals(initialState, page.getList());
 		
 		//item 1
 		page.move("Esta", "e arraste para");
-		Assert.assertArrayEquals(intermediumState, page.getList());
+		assertArrayEquals(intermediumState, page.getList());
 		
 		//item 2
 		page.move("Faça um clique longo,", "é uma lista");
-		Assert.assertArrayEquals(finalState, page.getList());
+		assertArrayEquals(finalState, page.getList());
 	}
 	
 }
