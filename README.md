@@ -2,9 +2,9 @@
 
 Testes automatizados utilizando o aplicativo CT Appium. 
 
-<h5> Documentação dos conceitos adquiridos durante o *curso de Appium do professor Francisco Wagner Costa Aquino + ampliacão de features. </h5>
+<h5> Documentação dos conceitos adquiridos durante o *curso de Appium do professor Francisco Wagner Costa Aquino + ampliação de features.
 
-*Disponível em: https://www.udemy.com/course/testes-appium/
+*Disponível em: https://www.udemy.com/course/testes-appium/ </h5>
 
 ## Softwares
 
